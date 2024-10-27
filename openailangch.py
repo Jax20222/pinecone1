@@ -44,7 +44,7 @@ try:
 except Exception as e:
     raise RuntimeError(f"No se pudo conectar a OpenAI para crear embeddings: {e}")
 
-# Leer el contenido de 'salida_mejorada.txt' usando una ruta relativa
+# Leer el contenido de 'salida_mejorada.txt'
 file_path = os.path.join(os.path.dirname(__file__), '..', 'salida_mejorada.txt')
 try:
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -55,7 +55,7 @@ except FileNotFoundError:
 except Exception as e:
     raise IOError(f"Error al leer el archivo '{file_path}': {e}")
 
-# Dividir el texto en fragmentos si es necesario (opcional)
+# Dividir el texto en fragmentos si es necesario
 text_fragments = text.split("\n\n")  # Aquí se divide por párrafos o como prefieras
 
 # Conectar con el vector store Pinecone e insertar el texto leído del archivo
@@ -72,7 +72,6 @@ except Exception as e:
 # Mostrar el estado del índice después de la inserción
 try:
     print(pc.Index(index_name).describe_index_stats())
+    print("\n")
 except Exception as e:
     raise RuntimeError(f"No se pudo obtener el estado del índice '{index_name}': {e}")
-
-print("\n")

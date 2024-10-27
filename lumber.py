@@ -1,14 +1,7 @@
 import pdfplumber
-import os
-import sys
 
-# Obtener la ruta del archivo PDF desde los argumentos
-if len(sys.argv) > 1:
-    pdf_path = sys.argv[1]
-else:
-    raise ValueError("Se necesita una ruta de archivo PDF como argumento.")
-
-print(f"Leyendo el archivo PDF desde: {pdf_path}")
+# Ruta del archivo PDF
+pdf_path = r'C:\Users\jaime\OneDrive\Escritorio\Pinecone\rasa_seccion_1.pdf'  # Cambia el nombre de tu archivo PDF
 
 # Función para convertir PDF a texto usando pdfplumber
 def pdf_a_texto(pdf_path):

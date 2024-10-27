@@ -2,7 +2,7 @@ import os
 import time
 from pinecone import Pinecone, ServerlessSpec
 from langchain_pinecone import PineconeVectorStore
-from langchain_openai import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings  # Asegurarnos de importar OpenAIEmbeddings
 
 # Configurar las API keys desde las variables de entorno
 pinecone_api_key = os.environ.get('PINECONE_API_KEY')
