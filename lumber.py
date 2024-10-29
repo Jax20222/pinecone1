@@ -1,7 +1,10 @@
 import pdfplumber
+import sys
+import os
 
-# Ruta del archivo PDF
-pdf_path = r'C:\Users\jaime\OneDrive\Escritorio\Pinecone\rasa_seccion_1.pdf'  # Cambia el nombre de tu archivo PDF
+# Recibir la ruta del PDF como argumento
+pdf_path = sys.argv[1]  # El primer argumento es la ruta al archivo PDF
+output_path = sys.argv[2]  # El segundo argumento es la ruta al archivo de salida
 
 # Función para convertir PDF a texto usando pdfplumber
 def pdf_a_texto(pdf_path):
@@ -23,10 +26,6 @@ def pdf_a_texto(pdf_path):
 # Convertir el PDF a texto
 texto = pdf_a_texto(pdf_path)
 
-# Ruta absoluta del archivo de salida (en la carpeta backend)
-output_path = r'C:\Users\jaime\OneDrive\Escritorio\Pinecone\backend\salida_mejorada.txt'
-print(f"Guardando el archivo de texto en: {output_path}")
-
 # Guardar el texto en un archivo de salida
 try:
     with open(output_path, 'w', encoding='utf-8') as archivo_texto:
@@ -34,3 +33,4 @@ try:
     print(f"El archivo de texto ha sido guardado correctamente en: {output_path}")
 except Exception as e:
     print(f"Error al guardar el archivo de salida: {e}")
+    raise
