@@ -1,0 +1,13 @@
+# Ignorar entornos virtuales
+env/
+new_env/
+
+# Ignorar archivos de node_modules (frontend)
+node_modules/
+
+# Ignorar otros archivos innecesarios
+*.log
+*.pyc
+__pycache__/
+.vscode/
+.idea/
